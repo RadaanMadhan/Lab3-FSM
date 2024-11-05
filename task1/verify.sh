@@ -1,6 +1,9 @@
 #!/bin/bash
 
 # Translate Verilog -> C++ including testbench
+
+#USE THIS INSTEAD
+#verilator --Wall --trace --cc lfsr.sv --exe verify.cpp --prefix "Vdut" -o Vdut -LDFLAGS "-lgtest -lgtest_main -lpthread"
 verilator   -Wall --trace \
             -cc lfsr.sv \
             --exe verify.cpp \
@@ -13,4 +16,4 @@ make -j -C obj_dir/ -f Vdut.mk
 
 # Run executable simulation file
 ./obj_dir/Vdut
-    
+
